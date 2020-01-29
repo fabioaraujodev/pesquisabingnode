@@ -7,8 +7,6 @@ const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
 let credentials = new CognitiveServicesCredentials('fdf481a871054576ae0a7d76871a7822');
 let webSearchApiClient = new WebSearchAPIClient(credentials);
 
-
-
 (async function() {
     try{
        connection = await oracledb.getConnection({
