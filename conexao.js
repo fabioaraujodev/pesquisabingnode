@@ -4,11 +4,20 @@ var oracledb = require('oracledb');
 (async function() {
 try{
    connection = await oracledb.getConnection({
-        user : 'SGA_FINANCEIRO',
-        password : 'SGA_FINANCEIRO',
-        connectString : 'jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=ORAPROD1)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=D01BDAD)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC))))'
+        user : 'bd_fabio',
+        password : '',
+        connectString : 'ORAPROD1/D01BDAD'
    });
    console.log("Successfully connected to Oracle!")
+
+   const result = await connection.execute(
+    `SELECT *
+     FROM sga_financeiro.robo
+     WHERE cod_robo in :id`,
+    [1],  // bind value for :id
+  );
+  console.log(result.rows);
+
 } catch(err) {
     console.log("Error: ", err);
   } finally {
