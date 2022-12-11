@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "azure-cognitiveservices-websearch": "^2.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ms-rest-azure": "^3.0.0",
     "oracledb": "^4.1.0"
   }
